@@ -128,4 +128,8 @@ def main(sc):
     for group in range(len(FILE_NAME)):
         rddJ.filter(lambda x: x[0] == group or x[0]==-1).values() \
         .saveAsTextFile(f'{OUTPUT_PREFIX}/{FILE_NAME[group]}')
+        
+if __name__=='__main__':
+    sc = SparkContext()
+    main(sc)
 
