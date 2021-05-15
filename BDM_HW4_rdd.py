@@ -109,7 +109,7 @@ def main(sc):
       .sortByKey() \
       .map(lambda x: x[1]) \
       .collect()
-    groupCount
+    #groupCount
 
     # Filter the Pattter data and expload the vist_by_day list 
     rddG = rddPattern \
