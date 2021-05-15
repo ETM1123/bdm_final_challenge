@@ -82,7 +82,7 @@ def main(sc):
              '445230': 7, '445291': 7, '445220': 7, '445292': 7, 
              '445110': 8}
 
-    OUTPUT_PREFIX = sys.argv[1]
+    OUTPUT_PREFIX = sys.argv[-1]
 
     FILE_NAME = ['big_box_grocers',
            'convenience_stores',
