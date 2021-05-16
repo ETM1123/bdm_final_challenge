@@ -8,65 +8,6 @@ import numpy as np
 import sys
 
 
-# # Part D
-# def filterPOIs(_, lines):
-#     ## lines is an genrator object - multiple lines
-#     reader = csv.reader(lines)
-#     # get contetns
-#     for line in reader:
-#         placekey, naics_code = line[0], line[9]
-#         if naics_code in CAT_CODES:
-#             yield placekey, CAT_GROUP[naics_code]
-
-
-
-
-# # Part F,G 
-# def extractVisits(storeGroup, _, lines):
-#     reader = csv.reader(lines)
-#     for line in reader:
-#         placekey, date_range_start, raw_visit_counts, visits_by_day = (line[0], 
-#                                                                  line[12],
-#                                                                  line[14],
-#                                                                  line[16])
-#         year = date_range_start[:4]
-#         if year in ['2019', '2020']:
-#             try:
-#                 group = storeGroup[placekey]
-#                 current_date = datetime.fromisoformat(date_range_start[:10])
-#                 day_count = zip([((current_date + timedelta(days=i)) - datetime(2019,1,1)).days for i in range(7)], json.loads(visits_by_day))
-#                 for day, count in day_count:
-#                     yield (group, day), count
-#             except:
-#                 pass
-
-# # Part H,i
-# # Remember to use groupCount to know how long the visits list should be
-# def computeStats(groupCount, _, records):
-#     # records is an iterator -- > containg key, value pairs 
-#     for key, value in records:
-#         group, day = key[0], key[1]
-#         count = groupCount[group]
-#         current_count = len(value)
-#         diff = count - current_count 
-
-#         # extend values 
-#         values = list(value) + [0 for i in range(diff)]
-
-#         # get stats
-#         median = np.median(values)
-#         std = np.std(values)
-#         low, high = max(0, median - std), median + std
-
-#         # get date
-#         current_date = datetime(2019, 1, 1) + timedelta(days=day)
-#         if current_date.year == 2020:
-#             yield group, ','.join([str(current_date.year), current_date.strftime('%Y-%m-%d'), str(median), str(int(low)), str(int(high))])
-#         else:
-#             # project date to 2020
-#             yield group, ','.join([str(current_date.year), current_date.replace(year=2020).strftime('%Y-%m-%d'), str(median), str(int(low)), str(int(high))])
-
-
 
 def main(sc):
 
